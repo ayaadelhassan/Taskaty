@@ -1,4 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:taskaty/logic/global_variables.dart';
+import 'package:taskaty/providers/bottom_bar_provider.dart';
 import 'dart:async';
 
 import 'package:taskaty/screens/home.dart';
@@ -11,13 +15,20 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Taskaty',
-      theme: ThemeData(
-        primarySwatch: Colors.grey,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (_)=> Bottom_Bar_Provider(),
+        ),
+      ],
+      child: MaterialApp(
+        title: 'Taskaty',
+        theme: ThemeData(
+          primarySwatch: Colors.grey,
+        ),
+        home: MyHomePage(title: 'Taskaty'),
+        debugShowCheckedModeBanner: false,
       ),
-      home: MyHomePage(title: 'Taskaty'),
-      debugShowCheckedModeBanner: false,
     );
   }
 }
@@ -44,11 +55,18 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        color: const Color(0xffff914d),
-        child: Image.asset(
-          'assets/logos/taskaty_logo2.png',
-          width: 180.0,
-          height: 180.0,
-        ));
+        color: Global_Variables.orange,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Image.asset(
+              'assets/logos/taskaty_logo2.png',
+              width: 180.0,
+              height: 180.0,
+            ),
+          ],
+        )
+    );
   }
 }

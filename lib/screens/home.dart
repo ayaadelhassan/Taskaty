@@ -1,57 +1,22 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-class Home extends StatefulWidget {
-  @override
-  _HomeState createState() => _HomeState();
-}
+import 'package:taskaty/logic/global_variables.dart';
+import 'package:taskaty/widgets/bottom_bar.dart';
+import 'package:taskaty/widgets/circular_progress_bar.dart';
+class Home extends StatelessWidget {
 
-class _HomeState extends State<Home> {
-  //the bottom app bar variables and function
-  int _selectedIndex = 0;
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-  ////////////////////////////////////////////
   @override
   Widget build(BuildContext context) {
-    //getting size of the device's screen
-    double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
     //////////////////////////////////////////////////
-    double pic_size = width/5;
-    double name_font_size = width/15;
+    double pic_size = Global_Variables.getDeviceWidth(context)/5;
+    double name_font_size = Global_Variables.getDeviceWidth(context)/15;
     //////////////////////////////////////////////////
      return Scaffold(
        //bottom bar
-        bottomNavigationBar: BottomNavigationBar(
-          unselectedIconTheme: IconThemeData(
-            color: const Color(0xff929099),
-          ),
-          unselectedItemColor: const Color(0xff929099),
-          selectedItemColor: const Color(0xffED6612),
-          backgroundColor: const Color(0xff323136),
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: 'Home',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.calendar_today_sharp),
-              label: 'Calender',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.account_circle),
-              label: 'Account',
-            ),
-          ],
-          currentIndex: _selectedIndex, //New
-          onTap: _onItemTapped,         //New
-        ),
+        bottomNavigationBar: Bottom_Bar(),
       body: Container(
-        color: const Color(0xff3b3940),
+        color: Global_Variables.grey,
         child: Center(
           child: Padding(
             padding: const EdgeInsets.fromLTRB(0, 50, 0, 0),
@@ -84,6 +49,7 @@ class _HomeState extends State<Home> {
                      )
                    ],
                  ),
+                new Cricular_Brogress_Bar(),
               ],
             ),
           )
