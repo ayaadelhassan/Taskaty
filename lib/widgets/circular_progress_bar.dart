@@ -4,13 +4,13 @@ import 'package:taskaty/logic/global_variables.dart';
 class Cricular_Brogress_Bar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var radius = Global_Variables.getDeviceWidth(context)/4;
-    var font_size = Global_Variables.getDeviceWidth(context)/15;
+    var radius = Global_Variables.getDeviceWidth(context)/2;
+    var font_size = Global_Variables.getDeviceWidth(context)/10;
     return CircularPercentIndicator(
       radius: radius,
       animation: true,
       animationDuration: 1200,
-      lineWidth: 10,
+      lineWidth: 12,
       percent: 0.75,
       center: new Text(
         "3/4",
