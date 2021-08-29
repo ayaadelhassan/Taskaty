@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:taskaty/logic/global_variables.dart';
 import 'package:taskaty/providers/bottom_bar_provider.dart';
+import 'package:taskaty/providers/data_validation_provider.dart';
 import 'dart:async';
 import 'package:taskaty/screens/start.dart';
 
@@ -18,8 +19,11 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
-          create: (_)=> Bottom_Bar_Provider(),
+          create: (_) => Bottom_Bar_Provider(),
         ),
+        ChangeNotifierProvider(
+          create: (_) => Data_Validation_Provider(),
+        )
       ],
       child: GetMaterialApp(
         title: 'Taskaty',
@@ -62,11 +66,10 @@ class _MyHomePageState extends State<MyHomePage> {
           children: [
             Image.asset(
               'assets/logos/taskaty_logo2.png',
-              width: Global_Variables.getDeviceWidth(context)/1.5,
-              height: Global_Variables.getDeviceHeight(context)/1.5,
+              width: Global_Variables.getDeviceWidth(context) / 1.5,
+              height: Global_Variables.getDeviceHeight(context) / 1.5,
             ),
           ],
-        )
-    );
+        ));
   }
 }
