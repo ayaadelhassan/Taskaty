@@ -5,6 +5,8 @@ import 'package:provider/provider.dart';
 import 'package:taskaty/logic/global_variables.dart';
 import 'package:taskaty/providers/bottom_bar_provider.dart';
 import 'package:taskaty/providers/data_validation_provider.dart';
+import 'package:taskaty/providers/user_provider.dart';
+import 'package:taskaty/providers/task_provider.dart';
 import 'dart:async';
 import 'package:taskaty/screens/start.dart';
 
@@ -23,6 +25,12 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (_) => Data_Validation_Provider(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => User_Provider(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => Task_Provider(),
         )
       ],
       child: GetMaterialApp(

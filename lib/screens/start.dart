@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:taskaty/logic/global_variables.dart';
+import 'package:taskaty/screens/login.dart';
 import 'package:taskaty/screens/signup.dart';
 class Start extends StatelessWidget {
   @override
@@ -48,7 +49,9 @@ class Start extends StatelessWidget {
                                   )
                               )
                           ),
-                          onPressed: () => {}
+                          onPressed: () => {
+                            Get.to(() => Login())
+                          }
                       ),
                     ),
                     SizedBox(height: 20),
